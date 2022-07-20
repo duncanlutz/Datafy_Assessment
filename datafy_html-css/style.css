@@ -1,0 +1,91 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200&display=swap');
+
+/* For this example I created a wrapper that stays the size of the window since I'm doing some animations that go outside of the screens bounds
+I use flexbox to center the boxes, defaulting to desktop view (this isn't always the approach I would go, mobile first is often very important,
+I decided to go desktop first this time since it's how it was ordered in the assessment instructions).
+*/
+.wrapper {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  gap: 10vw;
+  background-color: #fffdfd;
+  overflow: hidden;
+}
+
+/* I build the boxes out together to cut down on duplicate text, adding their colors seperately in their own selectors*/
+.box__red,
+.box__green {
+  border-radius: 1rem;
+  width: 25%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  aspect-ratio: 1/1;
+  color: #fffdfd;
+  cursor: pointer;
+  -webkit-box-shadow: 3px 3px 10px -1px rgba(0, 0, 0, 0.13);
+  box-shadow: 3px 3px 10px -1px rgba(0, 0, 0, 0.13);
+  font-family: 'Poppins';
+  font-size: 200;
+  font-size: 3vw;
+}
+
+.box__red {
+  background-color: #d62839;
+}
+
+.box__green {
+  background-color: #568259;
+  transition: transform cubic-bezier(0.67, 0.22, 0.39, 0.92) 1s;
+}
+
+/* These classes assist in the transitions which in this example are mostly handled in Javascript */
+.box--hover {
+  transform: scale(1.1);
+}
+
+.box--transition-handler {
+  transition: transform cubic-bezier(0.67, 0.22, 0.39, 0.92) 0.5s;
+}
+
+.box--hold-scale {
+  transform: scale(1.1);
+}
+
+.box__red--wide-down {
+  transform: translateY(100vh);
+}
+
+.box__red--wide-up {
+  transform: translateY(-100vh);
+}
+
+.box__red--mobile-down {
+  transform: translateX(100vw);
+}
+
+.box__red--mobile-up {
+  transform: translateX(-100vw);
+}
+
+.box__green--wide-small {
+  transform: scale(0%) rotate(360deg);
+}
+
+/* This media query changes the flex-direction to vertically align the boxes instead of horizontally */
+@media (max-width: 700px) {
+  .wrapper {
+    flex-direction: column;
+  }
+
+  /* It also changes the box size and font-size to better fit the screen */
+  .box__red,
+  .box__green {
+    width: 50%;
+    font-size: 7vw;
+  }
+}

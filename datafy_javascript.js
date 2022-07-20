@@ -5,6 +5,12 @@ const objectsArray = [];
 const indexArray = [];
 const nameArray = [];
 
+/**
+ * Generates 100 objects and adds them to an array
+ * @param {Array} arr - The array to push generated objects to
+ * @param {Array} indArr - The array all generated indexes will be stored in
+ * @param {Array} nameArr - The array all generated names will be stored in
+ */
 const generateObjects = (arr, indArr, nameArr) => {
   for (let i = 0; i <= 100; i++) {
     // Run generation functions
@@ -22,6 +28,10 @@ const generateObjects = (arr, indArr, nameArr) => {
   }
 };
 
+/**
+ * Generates a random integer to be used as an index
+ * @param {Array} arr - Array generated index will be checked against and added to
+ */
 const generateRandomIndex = (arr) => {
   // Generate random number with a maximum of 20000000000
   const newIndex = Math.floor(Math.random() * 20000000000);
@@ -36,6 +46,10 @@ const generateRandomIndex = (arr) => {
   return newIndex;
 };
 
+/**
+ * Generates a random string of characters to be used as a name
+ * @param {Array} arr - Array generated names will be checked against and added to
+ */
 const generateRandomName = (arr) => {
   // Establish the character list to pull from and create the temporary string
   const characterList = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz';
@@ -56,6 +70,11 @@ const generateRandomName = (arr) => {
   return finalString;
 };
 
+/**
+ * Sorts an array based on a given object key and prints its contents to the screen
+ * @param {Array} arr - The array to be sorted
+ * @param {string} key - The key we want to sort by, in this example it's either index or name
+ */
 const sortAndPrintArray = (arr, key) => {
   // Sort the array based on the function parameters
   arr.sort((a, b) => {
